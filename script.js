@@ -1381,32 +1381,306 @@
 
 //====== ai
 
-function flickSwitch(arr) {
-  let isTrue = true;
-  return arr.map(word => {
-    if (word === 'flick') {
-      isTrue = !isTrue;
-    }
-    return isTrue;
-  });
-}
+// function flickSwitch(arr) {
+//   let isTrue = true;
+//   return arr.map(word => {
+//     if (word === 'flick') {
+//       isTrue = !isTrue;
+//     }
+//     return isTrue;
+//   });
+// }
 
 // console.log(flickSwitch(['codewars', 'flick', 'code', 'wars', 'codewars', 'codewars',]));
 // console.log(flickSwitch(['codewars', 'code', 'flick', 'wars']));
 
-console.log(flickSwitch([[false, false, false, false]]));
+// console.log(flickSwitch([[false, false, false, false]]));
 
 // console.log(flickSwitch(['flick', 'codewars', 'code', 'wars', 'flick', ]));
 
-//---------------------------------------------------
 
-function repeatStr (n, s) {
-  let str = '';
-  for (let i = 0; i < n; i++) {
-    str += s;
-  }
+//------------------ CW ---------------------------------
+
+
+// function repeatStr (n, s) {
+//   let str = '';
+//   for (let i = 0; i < n; i++) {
+//     str += s;
+//   }
   
-  return str;
+//   return str;
+// }
+
+// console.log(repeatStr(3, 'Hii+'));
+
+
+//--------------  JS Basic  ----------------------------------
+
+
+function getDrinks(numberOfGuests) {
+  if (numberOfGuests === 0) {
+    return 0;
+  }
+
+  let portions = 0;
+
+  for (let i = 0; i <= numberOfGuests; i++) {
+    portions += i;
+  }
+
+  return portions;
 }
 
-console.log(repeatStr(3, 'Hii+'));
+console.log(getDrinks(6));  
+
+
+//-------------------------------------------------------------
+//---------------- JS Basic/Get Interviev -----------------
+
+
+
+// function getLocation(coordinates, commands) {
+//     let x = coordinates[0];
+//     let y = coordinates[1];
+  
+//     for (let ch of commands) {
+//       if (ch === 'forward') {
+//         y += 1;
+//       }
+//       if (ch === 'back') {
+//         y -= 1;
+//       }
+//       if (ch === 'right') {
+//         x += 1;
+//       }
+//       if (ch === 'left') {
+//         x -= 1;
+//       }
+//     }
+  
+//     return [x, y];
+// }
+
+// console.log(getLocation([2, 3], ['back', 'back', 'back', 'right']));
+// console.log(executeCommands([0, 0], [['forward', 2], ['right', 3]]));  
+
+
+
+
+//---------------- JS Basic/Get Interviev -----------------
+
+
+// function executeCommands(coordinates, commands) {
+//     let x = coordinates[0];
+//     let y = coordinates[1];
+
+//     // for (let i = 0; i < commands.length; i++) {
+//     //     if (commands[i] === 'forward') {
+//     //         x += 1;
+//     //     }
+//     // }
+
+//     for (let key in commands) {
+//         if (commands[key] === 'forward') {
+//             x ++;
+//         }
+//         // alert( commands[key] );
+//     }
+
+
+//  return [x, y];
+// }
+
+
+// console.log(executeCommands([1, 1], [['forward']]));
+
+// console.log(executeCommands([0, 0], [['forward', 2], ['right', 3]]));  
+
+
+//------------  JS EXT/Obj  ------------------------
+
+// const getProductId = url => url.slice(url.lastIndexOf('-p-')+3, -14);
+
+// console.log('exampleshop.com/fancy-coffee-cup-p-90764-12052019.html');
+
+
+//=============
+
+
+// url = 'exampleshop.com/fancy-coffee-cup-p-90764-12052019.html';
+
+// let p = url.indexOf('-p-');
+// let id = url.slice(p+3, -14);
+
+// let id = url.slice(url.indexOf('-p-')+3, -14);
+
+// console.log(id);
+
+
+
+//------------------------------------------------------------
+//----------------------  JS EXT/Obj  ------------------------
+
+
+
+// function getTriathlonDistance(distance) {
+//   let finish = 226.31;
+ 
+//   if (distance === 0) {
+//     return 'Starting Line... Good Luck!';
+//   }
+  
+//   if (distance < 3.86 && distance > 0) {
+//     let swimming = finish - distance;
+//     return {swim : `${swimming.toFixed(2)} to go!`};
+//   }
+  
+//   let biking = (finish - distance).toFixed(2);
+//   if (distance < 184.11) {
+//     return {bike : `${biking} to go!`};
+//   }
+
+//   let running = (finish - distance).toFixed(2);
+//   if (distance <226.31) {
+//     return {run : `${running} to go!`};
+//   }
+
+//   if (distance >= 226.31) {
+//     return 'You\'re done! Stop running!';
+//   }
+// }
+
+
+// console.log(getTriathlonDistance(226.11));  
+
+
+
+//     ==== MENTOR ====
+
+
+// function getTriathlonDistance(distance) {
+//   if (distance === 0) {
+//     return 'Starting Line... Good Luck!';
+//   }
+
+//   const swimming = 3.86;
+//   const biking = 180.25;
+//   const running = 42.2;
+
+//   const totalDistance = swimming + biking + running;
+
+//   if (distance >= totalDistance) {
+//     return 'You\'re done! Stop running!';
+//   }
+
+//   // round to 2 decimal places
+//   const diff = (totalDistance - distance).toFixed(2);
+//   const message = `${diff} to go!`;
+
+//   if (distance < swimming) {
+//     return { swim: message };
+//   }
+
+//   if (distance < biking + swimming) {
+//     return { bike: message };
+//   }
+
+//   return { run: message };
+// }
+
+// console.log(getTriathlonDistance(226.11));  
+
+
+
+//-------------  JS Extended/Extended Extra  -------------------
+
+
+// function getRowWeights(people) {
+//   let command1 = 0;
+//   let command2 = 0;
+
+//   for (let i = 0; i < people.length; i += 2) {
+//     command1 += people[i];
+//   }
+//   for (let i = 1; i < people.length; i += 2) {
+//     command2 += people[i];
+//   }
+
+//   return [command1, command2];
+// }
+
+// console.log(getRowWeights([10, 85, 90]));  // === [100, 85]
+
+
+
+//     ==== MENTOR ====
+
+
+// debugger;
+
+// function getRowWeights(array) {
+//   const teams = [0, 0];
+
+//   for (let i = 0; i < array.length; i++) {
+//     // 0 - for team 1, 1 - for team 2
+//     teams[i % 2] += array[i];
+//   }
+
+//   return teams;
+// }
+
+// console.log(getRowWeights([10, 85, 90]));  // === [100, 85]
+
+
+
+//---------  JS Extended/Extended Extra  -----------
+
+
+
+function getLeaders(numbers) {
+  let arr = [];
+  let sum = 0;
+
+  for (let i = numbers.length - 1; i >= 0; i--) {
+
+    if (numbers[i] > sum) {
+      arr.unshift(numbers[i]);
+    }
+
+    sum += numbers[i];
+
+  }
+
+  return arr;
+}
+
+console.log(getLeaders([1, 2, 3, 4, 0])); 
+console.log(getLeaders([16, 17, 4, 3, 5, 2])); 
+
+
+//     ==== MENTOR ====
+
+
+// function getLeaders(numbers) {
+//   const result = [];
+//   let sum = 0;
+
+//   for (let i = numbers.length - 1; i >= 0; i--) {
+//     const n = numbers[i];
+
+//     if (n > sum) {
+//       result.push(n);
+//     }
+
+//     sum += n;
+//   }
+
+//   // numbers should go in the original order
+//   return result.reverse();
+// }
+
+// console.log(getLeaders([1, 2, 3, 4, 0])); 
+// console.log(getLeaders([16, 17, 4, 3, 5, 2])); 
+
+//------------------------------------------------
+
